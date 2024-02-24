@@ -15,17 +15,13 @@ const Navbar = () => {
         <CustomLink title='Contact' href='/contact' className='ml-4' />
       </nav>
       <nav className='flex items-center justify-center flex-wrap'>
-        <SocialLink href='https://twitter.com/phyntom' target={'_blank'} className='w-5 mr-3'>
+        <SocialLink href='https://twitter.com/phyntom' target={'_blank'} className='mr-3'>
           <X />
         </SocialLink>
-        <SocialLink
-          href='https://www.linkedin.com/in/aimable-ruhumuriza-05492538/'
-          target={'_blank'}
-          className='w-5 mr-3'
-        >
+        <SocialLink href='https://www.linkedin.com/in/aimable-ruhumuriza-05492538/' target={'_blank'} className='mr-3'>
           <Linkedin />
         </SocialLink>
-        <SocialLink href='https://github.com/phyntom' target={'_blank'} className='w-5 mr-3'>
+        <SocialLink href='https://github.com/phyntom' target={'_blank'} className='mr-3'>
           <Github />
         </SocialLink>
       </nav>

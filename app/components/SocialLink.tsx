@@ -16,10 +16,8 @@ const SocialLink = ({ href, target, className, children }: SocialLinkProps) => {
       target={target}
       className={`${className} `}
       initial={true}
-      whileHover={{ rotate: 360, transition: { duration: 0.5 } }}
-      //   animate={{
-      //     rotate: [0, 0, 360, 360, 0],
-      //   }}
+      whileHover={{ rotate: 180, transition: { duration: 0.5 } }}
+      whileTap={{ scale: 0.9 }}
     >
       {children}
     </motion.a>
