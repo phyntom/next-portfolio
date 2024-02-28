@@ -1,18 +1,23 @@
 import Image from 'next/image'
-import profile from '../public/developer-pic-1.png'
+import profile from '../public/developer-pic-2.png'
 import AnimatedText from './components/AnimatedText'
 import Link from 'next/link'
 import Grid from './components/Grid'
 import { ArrowUpRightFromSquare } from 'lucide-react'
 import HireMe from './components/HireMe'
+import { Metadata } from 'next'
 
+const metadata: Metadata = {
+  title: 'Next Portfolio | About',
+  description: "This about page for Aimable's portfolio",
+}
 export default function Home() {
   return (
     <main className='flex items-center text-black w-full min-h-screen'>
       <Grid variant='inline' className='bg-white'>
         <div className='flex items-center justify-between'>
           <div className='w-1/2'>
-            <Image src={profile} alt='profile' className='w-full h-auto' />
+            <Image src={profile} alt='profile' className='w-full h-auto top-0' />
           </div>
           <div className='w-1/2'>
             <AnimatedText text='Turning Vision Into Reality With Code And Design' className='!text-left' />
