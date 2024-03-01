@@ -3,12 +3,14 @@ import Grid from '@/components/Grid'
 import profile from '../../public/developer-pic-4.png'
 import Image from 'next/image'
 import AnimatedNumber from '@/components/AnimatedNumber'
+import SkillsList from '@/components/SkillsList'
+import { skills } from '../data/skills'
 
 export default function About() {
   return (
     <main>
       <Grid variant='inline' className='pt-4'>
-        <AnimatedText text='Driving Innovation Through Expertise and Collaboration' className='!text-left mb-4' />
+        <AnimatedText text='Passion Ignites Purpose' className='m-8 !text-center !text-7xl' />
         <div className='grid grid-cols-8 gap-8'>
           <div className='col-span-3 flex flex-col items-start justify-start'>
             <h2 className='mb-4 p-2 text-lg font-bold uppercase text-black/75'>Biography</h2>
@@ -32,25 +34,32 @@ export default function About() {
               quality code and collaboration
             </p>
           </div>
-          <div className='col-span-3 relative h-full border-2 border-solid border-black rounded-2xl p-8 bg-white'>
-            <div className='absolute top-0 -right-6 -z-50 w-[102%] h-[103%] rounded-2xl bg-black' />
-            <Image src={profile} alt='profile' className='w-full h-auto rounded-2xl shadow-md' objectFit='cover' />
+          <div className='relative col-span-3 h-full rounded-2xl border-2 border-solid border-black bg-white p-8'>
+            <div className='absolute -right-6 top-0 -z-50 h-[103%] w-[102%] rounded-2xl bg-black' />
+            <Image src={profile} alt='profile' className='h-auto w-full rounded-2xl shadow-md' objectFit='cover' />
           </div>
           <div className='col-span-2 flex flex-col items-end justify-between'>
             <div className='flex flex-col items-end justify-center'>
-              <AnimatedNumber value={5} className='inline-block text-7xl font-bold' />
-              <h2 className='text-xl font-medium capitalize text-black/75'>satisfied clients</h2>
+              <span className='inline-block text-7xl font-bold'>
+                <AnimatedNumber target={25} />+
+              </span>
+              <h2 className='text-xl font-medium capitalize text-black/75'>github project repos</h2>
             </div>
             <div className='flex flex-col items-end justify-center'>
-              <AnimatedNumber value={15} className='inline-block text-7xl font-bold' />
+              <span className='inline-block text-7xl font-bold'>
+                <AnimatedNumber target={20} />+
+              </span>
               <h2 className='text-xl font-medium capitalize text-black/75'>projects completed</h2>
             </div>
             <div className='flex flex-col items-end justify-center'>
-              <AnimatedNumber value={14} className='inline-block text-7xl font-bold' />
+              <span className='inline-block text-7xl font-bold'>
+                <AnimatedNumber target={14} />+
+              </span>
               <h2 className='text-xl font-medium capitalize text-black/75'>years of experiences</h2>
             </div>
           </div>
         </div>
+        <SkillsList skills={skills} />
       </Grid>
     </main>
   )

@@ -5,7 +5,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className=' w-full border-solid border-t-2 border-black'>
+    <footer className='w-full bottom-0 border-solid border-t-2 border-black'>
       <Grid variant='flex' className='justify-evenly'>
         <span>{new Date().getFullYear()} &copy; All rights reserved </span>
         <div className='flex items-center'>

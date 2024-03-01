@@ -1,31 +1,34 @@
 'use client'
-import { motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
 type AnimatedNumberProps = {
-  value: number
+  target: number
   className?: string
+  duration?: number
 }
 
-const AnimatedNumber = ({ value, className }: AnimatedNumberProps) => {
-  const [currentNumber, setCurrentNumber] = useState(0)
+const AnimatedNumber = ({ target = 5, className, duration = 1000 }: AnimatedNumberProps) => {
+  const ref = useRef<HTMLSpanElement>(null)
+  const motionValue = useMotionValue(0)
+  const springValue = useSpring(motionValue, { duration: duration })
+  const isInView = useInView(ref)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentNumber(prev => {
-        if (prev < value) {
-          return prev + 1
-        }
-        return prev
-      })
-    }, 100)
-    return () => clearInterval(interval)
-  }, [value])
-  return (
-    <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={` ${className} `}>
-      {currentNumber}
-    </motion.span>
-  )
+    if (isInView) {
+      motionValue.set(target)
+    }
+  }, [isInView, target, motionValue])
+
+  useEffect(() => {
+    springValue.on('change', latest => {
+      if (ref.current && latest.toFixed(0)) {
+        ref.current.textContent = latest.toFixed(0)
+      }
+    })
+  }, [springValue, target])
+
+  return <span ref={ref} className={`${className}`}></span>
 }
 
 export default AnimatedNumber
