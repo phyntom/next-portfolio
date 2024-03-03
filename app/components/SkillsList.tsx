@@ -18,7 +18,7 @@ const SkillsList = ({ skills }: { skills: Skill[] }) => {
   return (
     <>
       <h2 className='my-8 text-lg font-bold uppercase text-black/75'>Skills</h2>
-      <div className='flex w-full flex-wrap items-center justify-around gap-4'>
+      <div className='flex w-full flex-wrap items-center justify-around gap-2'>
         {skills.map(skill => (
           <SkillItem
             skill={skill}
