@@ -17,7 +17,7 @@ export default function About() {
   return (
     <main>
       <Grid variant='inline' className='pt-4'>
-        <AnimatedText text='Passion Ignites Purpose' className='m-8 !text-center !text-7xl' />
+        <AnimatedText text='Passion Ignites Purpose' className='!m-8 !text-center text-2xl md:text-3xl xl:text-7xl' />
         <div className='grid grid-cols-8 gap-8'>
           <div className='col-span-3 flex flex-col items-start justify-start'>
             <h2 className='mb-4 p-2 text-lg font-bold uppercase text-black/75'>Biography</h2>

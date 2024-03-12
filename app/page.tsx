@@ -6,26 +6,23 @@ import { ArrowUpRightFromSquare } from 'lucide-react'
 import HireMe from './components/HireMe'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import ImageLoader from '@/components/ImageLoader'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Home',
   description: "This is the home page for Aimable's portfolio",
 }
 export default function Home() {
-  // ImageLoader('https://res.cloudinary.com/dyqp8mq2d/image/upload/v1710275668/developer-pic-2_wjkkvw.png', 1000, 100)
   return (
     <main>
       <Grid variant='inline' className='pt-4'>
         <div className='flex items-center justify-between flex-wrap'>
           <div className='md:w-1/2 w-full'>
             <Image
-              loader={ImageLoader}
-              src='developer-pic-2_wjkkvw.png'
+              src={profile}
               width={500}
               height={500}
-              quality={100}
-              alt='profile'
+              quality={85}
+              alt='profile picture'
               sizes='100vw'
               style={{
                 width: '100%',
@@ -39,7 +36,7 @@ export default function Home() {
           <div className='md:w-1/2 w-full'>
             <AnimatedText
               text='Turning Vision Into Reality With Code And Design'
-              className='!text-left text-2xl md:text-3xl xl:text-8xl'
+              className='!text-left text-2xl md:text-3xl xl:text-7xl'
             />
             <p className='my-4 text-xs md:text-base font-medium'>
               Passionate Software Engineer with 13+ years of experience in developing large scale web applications and

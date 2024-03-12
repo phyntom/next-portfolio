@@ -47,8 +47,8 @@ const FeaturedProject = ({ type, title, summary, img, link, githubLink }: Projec
 const Projects = () => {
   return (
     <main className='w-full mb-16 flex flex-col items-center justify-center'>
-      <Grid variant='block' className='pt-16'>
-        <AnimatedText text='Dream. Create. Achieve.' className='m-8 !text-center !text-7xl' />
+      <Grid variant='block' className='pt-4'>
+        <AnimatedText text='Dream. Create. Achieve.' className='!m-8 !text-center text-2xl md:text-3xl xl:text-7xl' />
         <div className='grid grid-cols-12 gap-24'>
           <div className='col-start-2 col-span-10'>
             <FeaturedProject
