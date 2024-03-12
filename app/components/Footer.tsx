@@ -5,10 +5,10 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className=' w-full border-solid border-t-2 border-black'>
-      <Grid variant='flex' className='justify-evenly'>
+    <footer className='w-full h-[128px] border-t-2 border-solid border-dark font-medium text-lg dark:text-light dark:border-light sm:text-base'>
+      <Grid variant='flex' className='items-center justify-evenly'>
         <span>{new Date().getFullYear()} &copy; All rights reserved </span>
-        <div className='flex items-center'>
+        <div className='flex items-center justify-center'>
           Build With
           <span className='px-2'>
             <Heart />
