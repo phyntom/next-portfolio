@@ -15,7 +15,9 @@ const variantStyles: { [key in Variants]: string } = {
 }
 
 const Grid = ({ variant, className, children }: GridProps) => {
-  return <div className={clsx('w-full h-full z-0 p-32', variantStyles[variant], className)}>{children}</div>
+  return (
+    <div className={clsx('w-full h-full z-0 p-8 md:p-16 lg:p-32', variantStyles[variant], className)}>{children}</div>
+  )
 }
 
 export default Grid

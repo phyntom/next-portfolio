@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const Navbar = () => {
   return (
-    <header className='w-full px-32 py-8 font-medium flex items-center justify-between'>
+    <header className='w-full px-32 py-8 font-medium flex items-center justify-between border-b border solid border-black/20 shadow-md'>
       <nav>
         <CustomLink title='Home' href='/' className='mr-4' />
         <CustomLink title='About' href='/about' className='mx-4' />

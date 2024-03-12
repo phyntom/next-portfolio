@@ -42,6 +42,7 @@ export default function About() {
             </p>
           </div>
           <div className='shadow-custShadow col-span-3 h-max rounded-2xl border-2 border-solid border-black bg-white p-8'>
+            {/* <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark dark:bg-light' /> */}
             <Image src={profile} alt='profile' className='h-auto w-full rounded-2xl shadow-md' />
           </div>
           <div className='col-span-2 flex flex-col items-end justify-between'>

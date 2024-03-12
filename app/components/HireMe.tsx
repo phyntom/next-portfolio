@@ -19,7 +19,7 @@ const spin = {
 const CircularText = () => {
   return (
     <motion.div className='w-48 h-auto flex items-center justify-center relative' variants={spin} animate='animate'>
-      <Image src={hireme} alt='hireme' />
+      <Image src={hireme} alt='hireme' priority={false} />
     </motion.div>
   )
 }

@@ -5,7 +5,7 @@ import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import projectImg from '../../public/gamehub.png'
-import { TbBrandGithub } from 'react-icons/tb'
+import { FaGithub } from 'react-icons/fa'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Projects',
@@ -29,15 +29,17 @@ const FeaturedProject = ({ type, title, summary, img, link, githubLink }: Projec
       </Link>
       <div className='w-1/2 flex flex-col items-start justify-between pl-6'>
         <span className='text-pink-900 font-medium text-xl'>{type}</span>
-        <Link href={link}>
-          <h2>{title}</h2>
+        <Link href={link} className='hover:underline underline-offset-3'>
+          <h2 className='my-2 w-full text-left text-4xl font-bold'>{title}</h2>
         </Link>
-        <p>{summary}</p>
+        <p className='my-2 font-medium text-black/80'>{summary}</p>
+        <div className='mt-2 flex items-center gap-2'>
+          <Link href={githubLink} className='text-[48px]'>
+            <FaGithub />
+          </Link>
+          <Link href={link}>Visit Project</Link>
+        </div>
       </div>
-      <Link href={githubLink} className='text-[64px]'>
-        <TbBrandGithub />
-      </Link>
-      <Link href={link}>Visit Project</Link>
     </article>
   )
 }
@@ -48,7 +50,7 @@ const Projects = () => {
       <Grid variant='block' className='pt-16'>
         <AnimatedText text='Dream. Create. Achieve.' className='m-8 !text-center !text-7xl' />
         <div className='grid grid-cols-12 gap-24'>
-          <div className='col-span-12'>
+          <div className='col-start-2 col-span-10'>
             <FeaturedProject
               type='Featured Project'
               title='Gamehub Application'

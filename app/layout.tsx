@@ -30,7 +30,7 @@ export default function RootLayout({
         <title>{title}</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <body className={`${montserrat.className} bg-light w-full min-h-screen`}>
+      <body className={`${montserrat.className} bg-white w-full min-h-screen`}>
         <Navbar />
         {children}
         <Footer />
