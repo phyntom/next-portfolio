@@ -7,9 +7,9 @@ import { ArrowUpRightFromSquare } from 'lucide-react'
 import HireMe from './components/HireMe'
 import { Metadata } from 'next'
 
-const metadata: Metadata = {
-  title: 'Next Portfolio | About',
-  description: "This about page for Aimable's portfolio",
+export const metadata: Metadata = {
+  title: 'Portfolio | Home',
+  description: "This is the home page for Aimable's portfolio",
 }
 export default function Home() {
   return (

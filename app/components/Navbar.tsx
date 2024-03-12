@@ -10,7 +10,6 @@ const Navbar = () => {
       <nav>
         <CustomLink title='Home' href='/' className='mr-4' />
         <CustomLink title='About' href='/about' className='mx-4' />
-        <CustomLink title='Experience' href='/experience' className='mx-4' />
         <CustomLink title='Project' href='/projects' className='mx-4' />
         <CustomLink title='Contact' href='/contact' className='ml-4' />
       </nav>

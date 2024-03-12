@@ -5,6 +5,13 @@ import Image from 'next/image'
 import AnimatedNumber from '@/components/AnimatedNumber'
 import SkillsList from '@/components/SkillsList'
 import { skills } from '../data/skills'
+import Experience from '@/components/Experience'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Portfolio | About',
+  description: "This is the about page for Aimable's portfolio",
+}
 
 export default function About() {
   return (
@@ -34,9 +41,8 @@ export default function About() {
               quality code and collaboration
             </p>
           </div>
-          <div className='relative col-span-3 h-full rounded-2xl border-2 border-solid border-black bg-white p-8'>
-            <div className='absolute -right-6 top-0 -z-50 h-[103%] w-[102%] rounded-2xl bg-black' />
-            <Image src={profile} alt='profile' className='h-auto w-full rounded-2xl shadow-md' objectFit='cover' />
+          <div className='shadow-custShadow col-span-3 h-max rounded-2xl border-2 border-solid border-black bg-white p-8'>
+            <Image src={profile} alt='profile' className='h-auto w-full rounded-2xl shadow-md' />
           </div>
           <div className='col-span-2 flex flex-col items-end justify-between'>
             <div className='flex flex-col items-end justify-center'>
@@ -60,6 +66,7 @@ export default function About() {
           </div>
         </div>
         <SkillsList skills={skills} />
+        <Experience />
       </Grid>
     </main>
   )
