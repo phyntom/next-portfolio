@@ -30,12 +30,5 @@ COPY --from=builder /app/ .
 
 # Start the Next.js app in production mode
 
-ENV NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=dyqp8mq2d
-ENV SMTP_HOST="sandbox.smtp.mailtrap.io"
-ENV SMTP_PORT=2525
-ENV SMTP_USER=34a13418a69531
-ENV SMTP_PASSWD=92d0c1c9595de5
-ENV SMTP_RECEIVER=phyntom@gmail.com
-
 CMD [ "npm", "start" ]
 
