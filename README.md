@@ -28,3 +28,9 @@ projects that highlight my skills and creativity. Explore and feel free to reach
   - [Website:](https://react-icons.github.io/react-icons/)
 - **Valibot: A light-wight library for schema declaration and validation made in Typescript. Looks similar to Zod**
   - [Website:](https://valibot.dev/)
+
+## Deployment
+
+The app is deployed on Microsoft Azure. It was deployed using Docker (https://www.docker.com/) container from as it can
+be seen from Dockerfile and I used the simplest way to deploy dockerized app in Azure using AppService. The domain was
+purchased on [Hostinger](https://www.hostinger.com/) then configured in Azure custom domains settings.
