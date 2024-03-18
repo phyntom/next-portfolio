@@ -2,6 +2,7 @@
 import { useScroll, motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import Progress from '@/components/Progress'
+import { VscDebugBreakpointConditional, VscDebugBreakpointData, VscDebugBreakpointLog } from 'react-icons/vsc'
 
 type ExperienceProps = {
   experiences: Experience[]
@@ -13,7 +14,7 @@ type Experience = {
   companyLink: string
   time: string
   location: string
-  work: string
+  work: string[]
 }
 
 const WorkDetails = ({ position, company, companyLink, time, location, work }: Experience) => {
@@ -34,9 +35,26 @@ const WorkDetails = ({ position, company, companyLink, time, location, work }: E
         <span className='font-medium capitalize text-black/75'>
           {time} | {location}
         </span>
-        <p className='w-full font-medium'>{work}</p>
+        <div className='w-full font-medium mt-2'>
+          <Description descriptions={work} />
+        </div>
       </motion.div>
     </li>
+  )
+}
+
+const Description = ({ descriptions }: { descriptions: string[] }) => {
+  return (
+    <div className='flex flex-col items-start justify-between'>
+      {descriptions.map((description, index) => (
+        <div key={index} className='flex items-baseline'>
+          <span className='mr-2'>
+            <VscDebugBreakpointData />
+          </span>
+          <span className='font-medium text-black/80'>{description}</span>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -58,43 +76,54 @@ const Experience = () => {
         <ul className='w-full flex flex-col items-start justify-between ml-4'>
           <WorkDetails
             position={'Senior Software Engineer'}
-            company='Microsoft'
+            company='MICROSOFT'
             companyLink='https://microsoft.com'
             time={'2021-Present'}
             location={'Nairobi, Kenya'}
-            work={
-              "Worked on a team responsible for developing new features for Google's search engine including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
-            }
+            work={[
+              'Developed and deployed features and fixes for FX Search (FX) group, improving customer satisfaction and engagement and enabling new capabilities unavailable',
+              'Led a team of 5 engineers to implement Overview features for Office.com and SharePoint.com, enhancing search experience by 30%',
+              'Maintained code quality by conducting constructive code reviews and guiding best practices, fostering a collaborative environment',
+              'Designed specifications document for the overview feature, streamlining development and ensuring accurate feature delivery',
+            ]}
           />
           <WorkDetails
             position={'Software Engineer'}
-            company='Comzafrica LTD'
+            company='COMZAFRICA LTD'
             companyLink='http://comzafrica.com/'
             time={'2013-2021'}
             location={'Kigali, Rwanda'}
-            work={
-              "Worked on a team responsible for developing new features for Google's search engine including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
-            }
+            work={[
+              "Worked on a team responsible for developing new features for Google's search engine including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization",
+              'Developed web app for loan protection, streamlining processes and enhancing efficiency by 25%',
+              'Delivered REST and GraphQL APIs, enhancing third-party integration and connectivity',
+              'Implemented performance tuning techniques on the back-end queries which resulted in 35% improvement in application performance',
+              'Spearheaded tech stack revamp to Spring Framework, boosting productivity by 25% and enhancing system scalability',
+            ]}
           />
           <WorkDetails
             position={'Software Developer'}
-            company='SONARWA Life Ltd'
+            company='SONARWA LIFE LTD'
             companyLink='https://sonarwalife.co.rw/'
             time={'2011-2013'}
             location={'Kigali, Rwanda'}
-            work={
-              "Worked on a team responsible for developing new features for Google's search engine including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
-            }
+            work={[
+              "Worked on a team responsible for developing new features for Google's search engine including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization",
+              'Automated brokers and agent payments, improving efficiency by 15%.',
+              'Led technology selection, applications rollout, and monitoring, optimizing resource allocation and aligning with organizational objectives',
+            ]}
           />
           <WorkDetails
-            position={'Senior Software Engineer'}
-            company='Microsoft'
-            companyLink='https://microsoft.com'
-            time={'2021-Present'}
-            location={'Nairobi, Kenya'}
-            work={
-              "Worked on a team responsible for developing new features for Google's search engine including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization"
-            }
+            position={'Software Developer'}
+            company='RITC/KIST'
+            companyLink=''
+            time={'2009-2011'}
+            location={'Kigali, Rwanda'}
+            work={[
+              'Designed and developed internal applications, including a student registration web app and an OLPC project inventory system',
+              'Led a team of 5 people covering every new innovative product of the organization',
+              'Supervised and assigned work to technical personnel while mentoring junior developers and engineers',
+            ]}
           />
         </ul>
       </div>

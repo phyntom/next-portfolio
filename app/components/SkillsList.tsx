@@ -14,19 +14,27 @@ const SkillItem = ({ skill, className }: { skill: Skill; className: string }) =>
   )
 }
 
+// motion.div initial={{ y: 50 }} whileInView={{ y: 0 }} transition={{ duration: 2, type: 'spring' }}
+
 const SkillsList = ({ skills }: { skills: Skill[] }) => {
   return (
     <>
       <h2 className='my-8 text-lg font-bold uppercase text-black/75'>Skills</h2>
-      <div className='flex w-full flex-wrap items-center justify-around gap-2'>
+      <motion.div
+        className='flex w-full flex-wrap items-center gap-2'
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
+        transition={{ duration: 2, type: 'spring' }}
+      >
         {skills.map(skill => (
           <SkillItem
             skill={skill}
-            className='w-full cursor-pointer rounded-xl border-2 border-black/75 bg-black p-6 text-center text-[1.5rem] font-light text-white transition-all duration-300 ease-in-out hover:border-black/75 hover:bg-white hover:text-black sm:w-1/2 md:w-1/3 lg:w-1/4'
+            className='rounded-xl border-2 border-black/75 bg-white p-1 text-center text-[1.0rem] font-light text-black transition-all duration-300 ease-in-out hover:border-black/75 hover:bg-white hover:text-black 
+            '
             key={skill.id}
           />
         ))}
-      </div>
+      </motion.div>
     </>
   )
 }

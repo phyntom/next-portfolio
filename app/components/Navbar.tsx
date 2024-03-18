@@ -5,11 +5,11 @@ import SocialLink from './SocialLink'
 
 const Navbar = () => {
   return (
-    <header className='w-full px-32 py-8 font-medium flex items-center justify-between border-b border solid border-black/20 shadow-md'>
+    <header className='w-full px-32 py-8 font-medium flex items-center justify-between'>
       <nav>
         <CustomLink title='Home' href='/' className='mr-4' />
         <CustomLink title='About' href='/about' className='mx-4' />
-        <CustomLink title='Project' href='/projects' className='mx-4' />
+        <CustomLink title='Projects' href='/projects' className='mx-4' />
         <CustomLink title='Contact' href='/contact' className='ml-4' />
       </nav>
       <nav className='flex items-center justify-center flex-wrap'>
