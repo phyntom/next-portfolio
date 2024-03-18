@@ -36,15 +36,15 @@ export default function Home() {
           <div className='md:w-1/2 w-full'>
             <AnimatedText
               text='Turning Vision Into Reality With Code And Design'
-              className='!text-left text-2xl md:text-3xl xl:text-7xl'
+              className='text-2xl md:text-3xl xl:text-7xl'
             />
-            <p className='my-4 text-xs md:text-base font-medium'>
-              Passionate Software Engineer with 13+ years of experience in developing large scale web applications and
+            <p className='my-4 text-pretty text-xs md:text-base font-medium'>
+              Passionate Software Engineer with 14+ years of experience in developing large scale web applications and
               backend systems. Skilled at writing clear, concise code that is easy to maintain and troubleshoot.
               Experienced in working with both small and large teams across multiple projects and companies. Able to
               work independently, in a hybrid, or remote settings.
             </p>
-            <div className='flex items-center self-start mt-2 gap-2'>
+            <div className='flex items-center self-start mt-4 gap-2'>
               <Link
                 href='/Resume.pdf'
                 target={'_blank'}

@@ -9,7 +9,7 @@ const spin = {
   animate: {
     rotate: 360,
     transition: {
-      duration: 2,
+      duration: 4,
       ease: 'linear',
       repeat: Infinity,
     },
