@@ -3,14 +3,14 @@
 Portfolio website that demonstrate tangible evidence of the skills and how they are pu tin the real world scenarios.It also serve as my personal brand to potential employers
 who would like to get more details on my soft skills, technical skills, unique strength as well as my journey as software engineers.
 
-## Getting started
+# Getting started
 
 Welcome to my portfolio! I've crafted this site using Next.js for a fast, responsive experience, Tailwind CSS for sleek
 styling, and Framer Motion for fluid animations. As a software engineer, I believe a portfolio is crucial to showcase my
 expertise, experience, and passion for crafting exceptional digital experiences. Here, you'll find a collection of my
 projects that highlight my skills and creativity. Explore and feel free to reach out for collaboration or opportunities!
 
-## Tech stack
+# Tech stack
 
 - **Next.js**:A React framework by Vercel for building performant and scalable server-rendered web applications.
   - [Website](https://nextjs.org/)
@@ -30,8 +30,11 @@ projects that highlight my skills and creativity. Explore and feel free to reach
 - **Valibot**: A light-wight library for schema declaration and validation made in Typescript. Looks similar to Zod
   - [Website:](https://valibot.dev/)
 
-## Deployment
+# Deployment
 
 The app is deployed on Microsoft Azure. It was deployed using Docker (https://www.docker.com/) container from as it can
 be seen from Dockerfile and I used the simplest way to deploy dockerized app in Azure using AppService. The domain was
 purchased on [Hostinger](https://www.hostinger.com/) then configured in Azure custom domains settings.
+
+# App Screenshots
+
