@@ -1,12 +1,14 @@
-import AnimatedText from '@/components/AnimatedText'
 import Grid from '@/components/Grid'
-import profile from '../../public/developer-pic-4.png'
+import profile from '../../public/developer-pic-4.webp'
 import Image from 'next/image'
-import AnimatedNumber from '@/components/AnimatedNumber'
-import SkillsList from '@/components/SkillsList'
 import { skills } from '../data/skills'
-import Experience from '@/components/Experience'
 import { Metadata } from 'next'
+import { ExperienceSection } from '@/components/ExperienceSection'
+import dynamic from 'next/dynamic'
+import AnimatedText from '@/components/AnimatedText'
+
+const AnimatedNumber = dynamic(() => import('@/components/AnimatedNumber'), { ssr: false })
+const SkillsList = dynamic(() => import('@/components/SkillsList'), { ssr: false })
 
 export const metadata: Metadata = {
   title: 'Portfolio | About',
@@ -16,10 +18,10 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <main>
-      <Grid variant='inline' className='pt-4'>
-        <AnimatedText text='Passion Ignites Purpose' className='!m-8 !text-center text-2xl md:text-3xl xl:text-7xl' />
-        <div className='grid grid-cols-8 gap-8'>
-          <div className='col-span-3 flex flex-col items-start justify-start'>
+      <Grid variant='block' className='pt-4'>
+        <AnimatedText text='Passion Ignites Purpose' className='!m-4 md:!m-8 !text-center text-2xl md:text-3xl xl:text-7xl' />
+        <div className='grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-8 lg:gap-16 mb-16'>
+          <div className='order-2 lg:order-1 col-span-1 md:col-span-4 lg:col-span-3 flex flex-col items-center lg:items-start justify-start text-center lg:text-left'>
             <h2 className='mb-4 p-2 text-lg font-bold uppercase text-black/75'>Biography</h2>
             <p className='mb-4 p-2 font-medium'>
               Hi, I&rsquo;m <i className='font-bold'>Aimable</i>, a seasoned software engineer with over 14 years of
@@ -41,33 +43,36 @@ export default function About() {
               quality code and collaboration
             </p>
           </div>
-          <div className='shadow-custShadow col-span-3 h-max rounded-2xl border-2 border-solid border-black bg-white p-8'>
-            {/* <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark dark:bg-light' /> */}
+
+          {/* Profile Image */}
+          <div className='order-1 lg:order-2 col-span-1 md:col-span-4 lg:col-span-3 h-max rounded-2xl border-2 border-solid border-black bg-white p-4 md:p-8 shadow-custShadow'>
             <Image src={profile} alt='profile' className='h-auto w-full rounded-2xl shadow-md' />
           </div>
-          <div className='col-span-2 flex flex-col items-end justify-between'>
-            <div className='flex flex-col items-end justify-center'>
-              <span className='inline-block text-7xl font-bold'>
+
+          {/* Stats */}
+          <div className='order-3 col-span-1 md:col-span-4 lg:col-span-2 flex flex-row flex-wrap lg:flex-col items-center lg:items-end justify-center lg:justify-between gap-6 lg:gap-0'>
+            <div className='flex flex-col items-center lg:items-end justify-center text-center lg:text-right'>
+              <span className='inline-block text-4xl md:text-5xl lg:text-7xl font-bold'>
                 <AnimatedNumber target={25} />+
               </span>
-              <h2 className='text-xl font-medium capitalize text-black/75'>github project repos</h2>
+              <h2 className='text-sm md:text-base lg:text-xl font-medium capitalize text-black/75'>github project repos</h2>
             </div>
-            <div className='flex flex-col items-end justify-center'>
-              <span className='inline-block text-7xl font-bold'>
+            <div className='flex flex-col items-center lg:items-end justify-center text-center lg:text-right'>
+              <span className='inline-block text-4xl md:text-5xl lg:text-7xl font-bold'>
                 <AnimatedNumber target={20} />+
               </span>
-              <h2 className='text-xl font-medium capitalize text-black/75'>projects completed</h2>
+              <h2 className='text-sm md:text-base lg:text-xl font-medium capitalize text-black/75'>projects completed</h2>
             </div>
-            <div className='flex flex-col items-end justify-center'>
-              <span className='inline-block text-7xl font-bold'>
+            <div className='flex flex-col items-center lg:items-end justify-center text-center lg:text-right'>
+              <span className='inline-block text-4xl md:text-5xl lg:text-7xl font-bold'>
                 <AnimatedNumber target={14} />+
               </span>
-              <h2 className='text-xl font-medium capitalize text-black/75'>years of experiences</h2>
+              <h2 className='text-sm md:text-base lg:text-xl font-medium capitalize text-black/75'>years of experience</h2>
             </div>
           </div>
         </div>
         <SkillsList skills={skills} />
-        <Experience />
+        <ExperienceSection />
       </Grid>
     </main>
   )

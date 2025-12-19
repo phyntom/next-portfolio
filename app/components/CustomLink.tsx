@@ -8,13 +8,14 @@ type CustomLinkProps = {
   className?: string
   title: string
   children?: React.ReactNode
+  onClick?: () => void
 }
 
-function CustomLink({ href, target, className, title, children }: CustomLinkProps) {
+function CustomLink({ href, target, className, title, children, onClick }: CustomLinkProps) {
   const pathName = usePathname()
   const isActive = pathName === href
   return (
-    <Link href={href} target={target} className={`${className} relative group`}>
+    <Link href={href} target={target} className={`${className} relative group`} onClick={onClick}>
       {title}
       <span
         className={`h-[2px] inline-block ${

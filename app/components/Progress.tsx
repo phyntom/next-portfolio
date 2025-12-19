@@ -11,8 +11,8 @@ const Progress = ({ targetRef }: ProgressProps) => {
     offset: ['start end', 'center center'],
   })
   return (
-    <figure className='absolute left-10 stroke-black'>
-      <svg width='100' height='100' viewBox='0 0 100 100'>
+    <figure className='sticky top-16 md:top-20 left-0 md:left-10 stroke-black z-10'>
+      <svg className='w-12 h-12 md:w-16 md:h-16 lg:w-[100px] lg:h-[100px]' viewBox='0 0 100 100'>
         <circle cx='50' cy='50' r='30' className='stroke-pink-900 stroke-2 fill-none' />
         <motion.circle
           cx='50'

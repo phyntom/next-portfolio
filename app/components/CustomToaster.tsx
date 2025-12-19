@@ -1,8 +1,6 @@
-import error from 'next/error'
 import React from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { IoIosNotificationsOutline } from 'react-icons/io'
-import { size } from 'valibot'
 
 const CustomToaster = () => {
   return (

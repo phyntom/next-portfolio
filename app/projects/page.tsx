@@ -7,7 +7,7 @@ import React from 'react'
 import projectImg from '../../public/gamehub.png'
 import sneakerImg from '../../public/sneaker-city.png'
 import { FaGithub } from 'react-icons/fa'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import AnimatedImage from '@/components/AnimatedImage'
 export const metadata: Metadata = {
   title: 'Portfolio | Projects',

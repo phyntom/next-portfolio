@@ -15,8 +15,11 @@ const config: Config = {
       boxShadow: {
         custShadow: '15px 10px 3px 2px rgba(0, 0, 0, 0.98)',
       },
+      colors:{
+        customRed: '#991b1b',
+      }
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")]
 }
 export default config

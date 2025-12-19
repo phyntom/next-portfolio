@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
-import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Footer from './components/Footer'
-import { title } from 'process'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -25,14 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title>{title}</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <body className={`${montserrat.className} bg-white w-full min-h-screen`}>
+      <body className={`${montserrat.className} bg-white w-full min-h-screen flex flex-col`}>
         <Navbar />
-        {children}
+        <div className='flex-1'>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

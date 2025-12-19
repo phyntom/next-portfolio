@@ -1,6 +1,6 @@
 import React from 'react'
-import { BiLogoPostgresql, BiLogoSpringBoot } from 'react-icons/bi'
-import { FaJava, FaNode, FaNodeJs } from 'react-icons/fa'
+import { BiLogoSpringBoot } from 'react-icons/bi'
+import { FaJava, FaNodeJs } from 'react-icons/fa'
 import { GrGraphQl } from 'react-icons/gr'
 import { LuFileJson } from 'react-icons/lu'
 import { SiApachekafka, SiExpress, SiMysql, SiNextdotjs, SiPostgresql, SiTailwindcss } from 'react-icons/si'

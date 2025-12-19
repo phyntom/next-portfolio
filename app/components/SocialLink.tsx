@@ -6,18 +6,19 @@ type SocialLinkProps = {
   href: string
   target: string
   className?: string
+  arialLabel?: string
   children: React.ReactNode
 }
 
-const SocialLink = ({ href, target, className, children }: SocialLinkProps) => {
+const SocialLink = ({ href, target, className, arialLabel, children }: SocialLinkProps) => {
   return (
     <motion.a
       href={href}
       target={target}
       className={`${className} `}
-      initial={true}
-      whileHover={{ rotate: 180, transition: { duration: 0.5 } }}
+      whileHover={{ rotate: 180, transition: { duration: 0.3 } }}
       whileTap={{ scale: 0.9 }}
+      aria-label={arialLabel}
     >
       {children}
     </motion.a>

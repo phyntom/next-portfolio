@@ -16,7 +16,7 @@ const variantStyles: { [key in Variants]: string } = {
 
 const Grid = ({ variant, className, children }: GridProps) => {
   return (
-    <div className={clsx('w-full h-full z-0 px-6 md:px-12 lg:px-32', variantStyles[variant], className)}>
+    <div className={clsx('w-full h-full z-0 px-6 md:px-12 lg:px-32 max-w-screen-2xl mx-auto', variantStyles[variant], className)}>
       {children}
     </div>
   )
