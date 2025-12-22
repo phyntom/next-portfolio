@@ -1,44 +1,25 @@
-# Stage 1: Install dependencies
-FROM node:18-alpine AS deps
-RUN apk add --no-cache libc6-compat
-WORKDIR /app
+FROM node:18-slim
 
-COPY package.json package-lock.json* ./
-RUN npm ci
-
-# Stage 2: Build the application
-FROM node:18-alpine AS builder
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-
-# Build the Next.js app
-RUN npm run build
-
-# Stage 3: Production runner
-FROM node:18-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# Install dependencies
+COPY package.json package-lock.json* ./
+RUN npm ci
 
-# Copy the public folder
-COPY --from=builder /app/public ./public
+# Copy source code
+COPY . .
 
-# Copy the standalone build
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Build the Next.js app
+RUN npm run build
 
-USER nextjs
-
+# Next.js listens on 3000 by default
 EXPOSE 3000
-
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-CMD ["node", "server.js"]
+# Start in production mode
+CMD ["npm", "start"]
 
