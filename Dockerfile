@@ -1,34 +1,44 @@
-# Use an official Node.js runtime as the base image for amd64 architecture
-FROM node:18-alpine AS builder
-
-# Set the working directory in the container
+# Stage 1: Install dependencies
+FROM node:18-alpine AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy package.json and package-lock.json files
-COPY package*.json ./
+COPY package.json package-lock.json* ./
+RUN npm ci
 
-# Install dependencies
-RUN npm install
+# Stage 2: Build the application
+FROM node:18-alpine AS builder
+WORKDIR /app
 
-# Copy the app's source code to the container
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Build the Next.js app
 RUN npm run build
 
-# Switch to a slimmer runtime image for serving the app
-FROM node:18-slim
-
-# Expose the port that Next.js runs on (usually 3000)
-
-EXPOSE 80
-
+# Stage 3: Production runner
+FROM node:18-alpine AS runner
 WORKDIR /app
 
-# Copy the built Next.js app from the builder stage
-COPY --from=builder /app/ .
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# Start the Next.js app in production mode
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-CMD [ "npm", "start" ]
+# Copy the public folder
+COPY --from=builder /app/public ./public
+
+# Copy the standalone build
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]
 
