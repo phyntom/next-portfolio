@@ -2,7 +2,7 @@
 import Grid from '@/components/Grid'
 import React, { FormEvent, useState } from 'react'
 import { AiOutlineMail } from 'react-icons/ai'
-import avatar from '../../public/avatar.png'
+import avatar from '../../public/avatar.webp'
 import Image from 'next/image'
 import { MdEmail, MdLocationPin, MdPermPhoneMsg } from 'react-icons/md'
 import * as v from 'valibot'
